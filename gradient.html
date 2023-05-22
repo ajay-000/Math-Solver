@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trigonometric Ratios and Angle Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        .container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .input-container {
+            margin-right: 10px;
+        }
+        input[type="number"] {
+            padding: 5px;
+        }
+        select {
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trigonometric Ratios and Angle Calculator</h1>
+    <div class="container">
+        <div class="input-container">
+            <label for="select">Select a quantity:</label><br>
+            <select id="select">
+                <option value="opposite">Opposite</option>
+                <option value="adjacent">Adjacent</option>
+                <option value="hypotenuse">Hypotenuse</option>
+                <option value="sine">Sine</option>
+                <option value="cosine">Cosine</option>
+                <option value="tangent">Tangent</option>
+                <option value="cotangent">Cotangent</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="value">Enter the value:</label><br>
+            <input type="number" id="value" placeholder="e.g., 10">
+        </div>
+    </div>
+    <button onclick="calculate()">Calculate</button>
+    <div class="result">
+        <h2>Result:</h2>
+        <p id="ratios"></p>
+        <p id="angle"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var select = document.getElementById("select");
+            var valueInput = document.getElementById("value").value;
+            var value = parseFloat(valueInput);
+
+            if (isNaN(value)) {
+                document.getElementById("ratios").textContent = "";
+                document.getElementById("angle").textContent = "";
+                return;
+            }
+
+            switch (select.value) {
+                case "opposite":
+                    var opposite = value;
+                    var hypotenuse = parseFloat(prompt("Enter the hypotenuse:"));
+                    if (isNaN(hypotenuse)) {
+                        document.getElementById("ratios").textContent = "";
+                        document.getElementById("angle").textContent = "";
+                        return;
+                    }
+                    var adjacent = Math.sqrt(Math.pow(hypotenuse, 2) - Math.pow(opposite, 2));
+                    var sine = opposite / hypotenuse;
+                    var cosine = adjacent / hypotenuse;
+                    var tangent = opposite / adjacent;
+                    var csc = 1 / sine;
+                    var sec = 1 / cosine;
+                    var cot = 1 / tangent;
+                    var angle = Math.atan(opposite / adjacent) * (180 / Math.PI);
+                    break;

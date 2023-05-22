@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cross Product Calculator</title>
+   <style type="text/css">
+       body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 5px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+   </style>
+</head>
+<body>
+    <h1>Cross Product Calculator</h1>
+    <div>
+        <label for="vector1">Vector 1:</label>
+        <input type="text" id="vector1" placeholder="Enter vector 1 (e.g., 2,3,4)">
+    </div>
+    <div>
+        <label for="vector2">Vector 2:</label>
+        <input type="text" id="vector2" placeholder="Enter vector 2 (e.g., 5,6,7)">
+    </div>
+    <button onclick="calculateCrossProduct()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateCrossProduct() {
+    var vector1Input = document.getElementById('vector1').value;
+    var vector2Input = document.getElementById('vector2').value;
+
+    // Parse input strings into arrays
+    var vector1 = vector1Input.split(',').map(Number);
+    var vector2 = vector2Input.split(',').map(Number);
+
+    // Check if input is valid
+    if (vector1.length !== 3 || vector2.length !== 3) {
+        document.getElementById('result').innerHTML = 'Invalid input. Please enter 3D vectors.';
+        return;
+    }
+
+    // Calculate cross product
+    var crossProduct = [
+        vector1[1] * vector2[2] - vector1[2] * vector2[1],
+        vector1[2] * vector2[0] - vector1[0] * vector2[2],
+        vector1[0] * vector2[1] - vector1[1] * vector2[0]
+    ];
+
+    // Display result
+    document.getElementById('result').innerHTML = 'Cross Product: ' + crossProduct.join(', ');
+}
+
+    </script>
+</body>
+</html>

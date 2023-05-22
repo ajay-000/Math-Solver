@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Solve Quadratic Equation</title>
+	<link rel="stylesheet" type="text/css" href="common.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type='text/css'>
+
+
+		#containerzeros{
+			position: absolute;
+      z-index: -2;
+			top: 25vh;
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			
+			text-align: center;
+		}
+
+#ha,#hb,#hc{
+	font-weight: 500;
+  opacity: .8;
+  height: 30px;
+  margin:5px 0;
+}
+#h2zeroes,#h3zeroes{
+  font-weight: 500;
+}
+
+#zero1,#zero2,#a,#b,#c{
+background-color:white;
+border:1px solid black;
+height:30px;
+width:150px;
+float:none;
+outline:none;
+text-align:center;
+font-size:20px;
+color: #8711f5;
+}
+#a,#b,#c{
+width: 100px;
+}
+@media only screen and (max-width:900px){
+	#a,#b,#c{
+		
+	}
+}
+#abc-container{
+  display: flex;
+  align-content:space-between;
+}
+
+#h3container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  
+}
+#input-container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+#input-container input{
+  margin:5px 0;
+
+}
+#noroots{
+	color:red;
+	height: 30px;
+}
+
+.buttonzero{
+  position: relative;
+  top: 40px;
+ }
+ .buttonzero:active{
+  top: 35px;
+ }
+body{z-index:-2;}
+
+</style>
+
+
+
+</style>
+</head>
+<body>
+<header>
+  <div id="div1">
+    <span id="brand">
+      <a href="index.html">Maths Solver</a>
+    </span>
+    <ul id="pages">     <li id="homeli" class="pages-li">Home</li>
+      <li id="vectorli" class="pages-li">Vectors</li>
+      <li id="coordinates2dli" class="pages-li">Coordinates 2D</li>
+      <li id="coordinates3dli" class="pages-li">Coordinates 3D</li>
+      <li id="quadratic" class="pages-li">
+        <a href="quadratic.html">
+        Quadratic
+        </a>
+      </li>
+      <li id="contact" class="pages-li">Contact</li>
+    
+    </ul>
+    <span id="darkmode"></span>
+  </div>
+  <div id="div2">
+    <ul id="link">
+      <li id="straight-lines">Straight Lines</li>
+      <LI>Cylinder</LI>
+    <button id="dropdown" onclick="menu();">
+    </button>
+      <LI>Sphere</LI>
+      <LI>Hemisphere</LI>
+      <LI>Cuboid</LI>
+      
+    </ul>
+  </div>
+</header>
+
+<div id="containerzeros">
+<h2 id='h2zeroes'>Zeros of quadratic polynomial</h2>
+<br/>
+<div id="abc-container">
+  <div id="h3container">
+<h3 id='ha'>Enter the value of &#39;a&#39; :</h3>
+<h3 id='hb'>Enter the value of &#39;b&#39; :</h3>
+<h3 id='hc'>Enter the value of &#39;c&#39; :</h3>
+</div>
+<div id="input-container">
+<input id='a' type='number'/>
+<input id='b' type='number'/>
+<input id='c' type='number'/>
+</div>
+</div>
+<br/>
+<p id='noroots'/>
+<h3 id="h3zeroes" style='margin:20px auto;'>Zeros of polynomial : </h3>
+<input disabled="disabled" id='zero1' type='text'/>
+<input disabled="disabled" id='zero2' type='text'/>
+<br/>
+<button class='buttonzero button calczero' onclick='work();'>Calculate</button>
+<button class='buttonzero button clrzero' onclick='clearabc();'>Clear</button>
+</div>
+<hr>
+<br>
+<br>
+<footer>
+  <div class="footer">
+  <h3 class="footerh3">Maths Solver</h3>
+<p>
+  Welcome to Maths Solver 
+</p>
+    
+  </div>
+
+
+</footer>
+
+
+<script type="text/javascript">
+
+function work(){
+	let ans1, ans2;
+  let a = document.getElementById("a").value;
+  let b = document.getElementById("b").value;
+  let c = document.getElementById("c").value;
+
+  let discriminant = (b*b) - (4*a*c);
+  let root1, root2;
+
+
+  if (a==''&&b==''&&c=='') 
+
+  {
+   document.getElementById('noroots').innerHTML = "Enter the values.";
+      document.getElementById("a").focus();
+      return;
+
+  }
+
+  // Checking the value of discriminant
+  if (discriminant > 0) {
+    root1 = ((-b + Math.sqrt(discriminant)) / (2*a)).toFixed(3);
+    root2 = ((-b - Math.sqrt(discriminant)) / (2*a)).toFixed(3);
+    ans1 = root1;
+    ans2 = root2;
+    document.getElementById("zero1").value = ans1;
+    document.getElementById("zero2").value = ans2;
+    return;
+  } else if (discriminant === 0) {
+    root1 = (-b / (2*a)).toFixed(3);
+    ans1 = root1;
+    ans2 = root1;
+    document.getElementById("zero1").value = ans1;
+    document.getElementById("zero2").value = ans2;
+    return;
+  } else {
+
+    let realPart = ((-b) / (2*a)).toFixed(3);
+    let imaginaryPart = (Math.sqrt(-discriminant) / (2*a)).toFixed(3);
+    if (imaginaryPart<0) {
+
+    ans1 = realPart + "" + imaginaryPart + "i";
+    ans2 = realPart + "+" + (-1*imaginaryPart) + "i";
+    	
+    } else {
+    ans1 = realPart + "+" + imaginaryPart + "i";
+    ans2 = realPart + "-" + imaginaryPart + "i";
+
+    }
+    document.getElementById("zero1").value = ans1;
+    document.getElementById("zero2").value = ans2;
+    return;
+  }
+
+}
+
+function clearabc(){
+  document.getElementById("a").value = "";
+  document.getElementById("b").value = "";
+  document.getElementById("c").value = "";
+  document.getElementById('noroots').innerHTML = "";
+}
+
+
+</script>
+
+
+<script type="text/javascript" src="common.js"></script>
+</body>
+</html>
