@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Trigonometric Ratios and Angle Calculator</title>
     <style>
@@ -7,23 +8,29 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
         h1 {
             margin-top: 50px;
         }
+
         .container {
             margin-top: 30px;
             display: flex;
             justify-content: center;
         }
+
         .input-container {
             margin-right: 10px;
         }
+
         input[type="number"] {
             padding: 5px;
         }
+
         select {
             padding: 5px;
         }
+
         button {
             margin-top: 10px;
             padding: 5px 10px;
@@ -32,12 +39,16 @@
             border: none;
             cursor: pointer;
         }
+
         .result {
             margin-top: 30px;
         }
     </style>
 </head>
+
 <body>
+    <script src="header-footer.js"></script>
+    <all-header></all-header>
     <h1>Trigonometric Ratios and Angle Calculator</h1>
     <div class="container">
         <div class="input-container">
@@ -63,7 +74,7 @@
         <p id="ratios"></p>
         <p id="angle"></p>
     </div>
-
+    <all-footer></all-footer>
     <script>
         function calculate() {
             var select = document.getElementById("select");
@@ -94,3 +105,8 @@
                     var cot = 1 / tangent;
                     var angle = Math.atan(opposite / adjacent) * (180 / Math.PI);
                     break;
+            }
+        }
+
+    </script>
+</body>

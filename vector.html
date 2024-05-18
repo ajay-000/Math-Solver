@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Vectors</title>
 	<link rel="stylesheet" type="text/css" href="common.css">
 	<meta charset="UTF-8">
-  <meta name="description" content="Free Web tutorials">
-  <meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Free Web tutorials">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script src="https://kit.fontawesome.com/8ed82426e0.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	
+	<script src="https://kit.fontawesome.com/8ed82426e0.js" crossorigin="anonymous"></script>
+
+
 
 
 
@@ -19,214 +20,174 @@
 
 
 	<style>
+		#container {
+			position: absolute;
+			top:100px;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-#container{
-	position: absolute;
-	
-	height: 100%;
-	width: 100%;
-	top:28vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
+		#container h2 {
+			margin: 50px 0;
+		}
 
-#container h2{
-	margin:  50px 0 ;
-}
+		div#ijk {
+			display: flex;
+			font-weight: bold;
+			justify-content: space-around;
+			width: 25%;
+		}
 
- div#ijk{
- 	display: flex;
- 	font-weight: bold;
- 	justify-content: space-around;
- 	
- 	width: 25%;
- }
+		div#ijk span {
+			width: 8.5%;
+			font-size: 20px;
+			text-align: center;
+		}
 
- div#ijk span{
- 	width: 8.5%;
- 	font-size: 20px;
- 	
- 	text-align: center;
- }
-
- #input-row1, #input-row2{
- 	display: flex;
- 	width: 25%;
- 	justify-content: space-around;
- }
+		#input-row1,
+		#input-row2 {
+			display: flex;
+			width: 25%;
+			justify-content: space-around;
+		}
 
 
 
 
-  #input-row1 input, #input-row2 input {
-margin: 10px 0;
-border:2px solid black;
-height:50px;
-width:50px;
-font-size:25px;
-font-family:serif;
-font-weight:bold;
-color:#8711f5;
-padding:1px 10px 1px;
-text-align:center;
-}
+		#input-row1 input,
+		#input-row2 input {
+			margin: 10px 0;
+			border: 2px solid black;
+			height: 50px;
+			width: 50px;
+			font-size: 25px;
+			font-family: serif;
+			font-weight: bold;
+			color: #8711f5;
+			padding: 1px 10px 1px;
+			text-align: center;
+		}
 
-div#answer{
-	display: flex;
-	flex-direction: column;
-	justify-content:space-around;
-	
-	height: 60px;
-	width:25%;
-}
+		div#answer {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			height: 60px;
+			width: 25%;
+		}
 
-div#answer span{
-	display: flex;
-}
-
-</style>
+		div#answer span {
+			display: flex;
+		}
+		footer{
+			bottom:-100px;
+		}
+	</style>
 </head>
+
 <body>
-<header>
-	<div id="div1">
-		<span id="brand">
-			<a href="index.html">Maths Solver</a>
-		</span>
-		<ul id="pages">			<li id="homeli" class="pages-li">Home</li>
-			<li id="vectorli" class="pages-li"><a href="vectors.html">Vectors</a></li>
-			<li id="coordinates2dli" class="pages-li">Coordinates 2D</li>
-			<li id="coordinates3dli" class="pages-li">Coordinates 3D</li>
-			<li id="quadratic" class="pages-li">
-				<a href="quadratic.html">
-				Quadratic
-				</a>
-			</li>
-			<li id="contact" class="pages-li">Contact</li>
-		
-		</ul>
-		<span id="darkmode"></span>
+	<script src="header-footer.js"></script>
+	<all-header></all-header>
+	<div id="container">
+		<h2>Cross product of 2 vectors</h2>
+		<div id="ijk">
+			<span>i</span>
+			<span>j</span>
+			<span>k</span>
+		</div>
+
+		<div id="input-row1">
+			<input id="i1" name="" type="number" />
+			<input id="j1" name="" type="number" />
+			<input id="k1" name="" type="number" />
+		</div>
+
+
+		<div id="input-row2">
+			<input id="i2" name="" type="number" />
+			<input id="j2" name="" type="number" />
+			<input id="k2" name="" type="number" />
+		</div>
+
+		<div id="answer">
+			<span>
+				Cross product :
+				<div id="ans_crossproduct"></div>
+			</span>
+			<span>
+				Modulus :
+				<div id="mod_crossproduct"></div>
+
+			</span>
+		</div>
+		<div id="buttons">
+			<button id="calc_crossproduct" class="button">Calculate</button>
+			<button id="clr_crossproduct" class="button">Clear</button>
+		</div>
 	</div>
-	<div id="div2">
-		<ul id="link">
-			<li id="straight-lines">Straight Lines</li>
-			<LI>Cylinder</LI>
-		<button id="dropdown" onclick="menu();">
-		</button>
-			<LI>Sphere</LI>
-			<LI>Hemisphere</LI>
-			<LI>Cuboid</LI>
-			
-		</ul>
-	</div>
-</header>
-<div id="container">
-	<h2>Cross product of 2 vectors</h2>
-<div id="ijk">
-  <span>i</span>
-  <span>j</span>
-  <span>k</span>
-</div>
-
-<div id="input-row1">
-	<input id="i1" name="" type="number" />
-<input id="j1" name="" type="number" />
-<input id="k1" name="" type="number" />
-</div>
-
-
-<div id="input-row2">
-	<input id="i2" name="" type="number" />
-<input id="j2" name="" type="number" />
-<input id="k2" name="" type="number" />
-</div>
-
-	<div id="answer">
-		<span>
-Cross product :
-<div id="ans_crossproduct"></div>
-		</span>
-        <span>
-Modulus :
-<div id="mod_crossproduct"></div>
-        	
-        </span>
-	</div>
-<div id="buttons">
-<button id="calc_crossproduct" class="button">Calculate</button>
-<button id="clr_crossproduct" class="button">Clear</button>
-</div>
-</div>
 
 
 
 
 
-<footer>
-  <div class="footer">
-  <h3 class="footerh3">Maths Solver</h3>
-<p>
-  Welcome to Maths Solver 
-</p>
-    
-  </div>
-
-
-</footer>
+	<all-footer></all-footer>
 
 
 
-<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript" src="common.js"></script>
 
-<script type="text/javascript">
-	document.getElementById('calc_crossproduct').addEventListener("click" , function () {
+	<script type="text/javascript">
+		document.getElementById('calc_crossproduct').addEventListener("click", function () {
 
-		let i1 = document.getElementById('i1').value;
-		let i2 = document.getElementById('i2').value;
-		let j1 = document.getElementById('j1').value;
-		let j2 = document.getElementById('j2').value;
-		let k1 = document.getElementById('k1').value;
-		let k2 = document.getElementById('k2').value;
-		let a = (k2*j1)-(j2*k1);
-		let b = -1*((k2*i1)-(i2*k1));
-		let c = (j2*i1)-(i2*j1);
+			let i1 = document.getElementById('i1').value;
+			let i2 = document.getElementById('i2').value;
+			let j1 = document.getElementById('j1').value;
+			let j2 = document.getElementById('j2').value;
+			let k1 = document.getElementById('k1').value;
+			let k2 = document.getElementById('k2').value;
+			let a = (k2 * j1) - (j2 * k1);
+			let b = -1 * ((k2 * i1) - (i2 * k1));
+			let c = (j2 * i1) - (i2 * j1);
 
-		document.getElementById("mod_crossproduct").innerHTML = (Math.sqrt(a*a + b*b + c*c)).toFixed(2); 
+			document.getElementById("mod_crossproduct").innerHTML = (Math.sqrt(a * a + b * b + c * c)).toFixed(2);
 
-		if (b<0 && c>0) {
-		document.getElementById('ans_crossproduct').innerHTML = a+"i" + b+"j+" + c+"k"; 
-			return 0;
-		}
-		if (b>0 && c<0) {
-		document.getElementById('ans_crossproduct').innerHTML = a+"i+" + b+"j" + c+"k"; 
-	 			return 0;
-	 		}
-	 		if (b<0 && c<0) {
-		document.getElementById('ans_crossproduct').innerHTML = a+"i" + b+"j" + c+"k"; 
-	 			return 0;
-	 		}
-
-
-
-		else{
-			document.getElementById('ans_crossproduct').innerHTML = a+"i+" + b+"j+" + c+"k";
-		}
-
-	
-	});
+			if (b < 0 && c > 0) {
+				document.getElementById('ans_crossproduct').innerHTML = a + "i" + b + "j+" + c + "k";
+				return 0;
+			}
+			if (b > 0 && c < 0) {
+				document.getElementById('ans_crossproduct').innerHTML = a + "i+" + b + "j" + c + "k";
+				return 0;
+			}
+			if (b < 0 && c < 0) {
+				document.getElementById('ans_crossproduct').innerHTML = a + "i" + b + "j" + c + "k";
+				return 0;
+			}
 
 
-	document.getElementById('clr_crossproduct').onclick=function(){
-		document.getElementById('i1').value = '';
-		document.getElementById('i2').value = '';
-		document.getElementById('j1').value = '';
-		document.getElementById('j2').value = '';
-		document.getElementById('k1').value = '';
-		document.getElementById('k2').value = '';
-		document.getElementById('ans_crossproduct').innerHTML = '';
-		document.getElementById("mod_crossproduct").innerHTML = '';
-	};
-</script>
+
+			else {
+				document.getElementById('ans_crossproduct').innerHTML = a + "i+" + b + "j+" + c + "k";
+			}
+
+
+		});
+
+
+		document.getElementById('clr_crossproduct').onclick = function () {
+			document.getElementById('i1').value = '';
+			document.getElementById('i2').value = '';
+			document.getElementById('j1').value = '';
+			document.getElementById('j2').value = '';
+			document.getElementById('k1').value = '';
+			document.getElementById('k2').value = '';
+			document.getElementById('ans_crossproduct').innerHTML = '';
+			document.getElementById("mod_crossproduct").innerHTML = '';
+		};
+	</script>
 
 
 
@@ -234,4 +195,5 @@ Modulus :
 
 
 </body>
+
 </html>

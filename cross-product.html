@@ -41,6 +41,8 @@ button {
    </style>
 </head>
 <body>
+    <script src="header-footer.js"></script>
+	<all-header></all-header>
     <h1>Cross Product Calculator</h1>
     <div>
         <label for="vector1">Vector 1:</label>
@@ -53,6 +55,7 @@ button {
     <button onclick="calculateCrossProduct()">Calculate</button>
     <div id="result"></div>
 
+    <all-footer></all-footer>
     <script>
         function calculateCrossProduct() {
     var vector1Input = document.getElementById('vector1').value;

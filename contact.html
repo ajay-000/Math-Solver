@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8ed82426e0.js" crossorigin="anonymous"></script>
+    <style>
+        #container {
+            position: relative;
+            top: 28vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            width: 100%;
+        }
+
+        #container #contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            margin-top: 20px;
+      
+        }
+
+        #contact input,
+        #contact textarea {
+            width: 40%;
+            height: 30px;
+            padding: 10px;
+            border: 2px solid #8711f5;
+            border-radius: 15px;
+
+
+        }
+
+        #contact input {}
+
+        #contact textarea {
+            height: 60px;
+        }
+
+        #contact button {
+            margin: 10px 0;
+            width: 100px;
+            height: 40px;
+            border: 2px solid #8711f5;
+            border-radius: 15px;
+            background: none;
+            transition: .2s;
+        }
+
+        #contact button:hover {
+            background-color: #7d0ce6;
+            color: white;
+        }
+
+        footer {
+            bottom: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="header-footer.js"></script>
+    <all-header></all-header>
+
+
+    <div id="container">
+        <h2>Contact Us </h2>
+        <form action="">
+            <div id="contact">
+                <input type="text" name="name" id="name" placeholder="Your name">
+                <br>
+                <input type="email" name="email" id="email" placeholder="Your email">
+                <br>
+                <textarea name="message" id="message"></textarea>
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <all-footer></all-footer>
+
+    <script type="text/javascript" src="common.js"></script>
+</body>
+
+</html>
